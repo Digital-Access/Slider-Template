@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="mainContainer">
+        <div id="prev" class="prev">
+            <svg id="prevArrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                class="bi bi-chevron-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+            </svg>
+        </div>
+
+        <div id="container" class="container">
+            <div id="slider" class="slider">
+                <div class="content">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                </div>
+
+                <div class="content">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                </div>
+
+                <div class="content">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                </div>
+
+                <div class="content">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                </div>
+
+                <div class="content">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="next" class="next">
+            <svg id="nextArrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                class="bi bi-chevron-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+        </div>
+    </div>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 180px;
+            height: 180px;
+            background-color: blue;
+        }
+
+        .mainContainer {
+            display: flex;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 700px;
+            height: 300px;
+            background-image: url(https://source.unsplash.com/user/erondu/1600x900);
+            background-size: cover;
+        }
+
+        .container {
+            width: 700px;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .slider {
+            width: fit-content;
+            display: flex;
+            transition: ease 1s;
+        }
+
+        .next {
+            display: flex;
+            background-color: transparent;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .next:hover {
+            background-color: rgba(128, 128, 128, 0.1);
+            cursor: pointer;
+        }
+
+        .prev {
+            display: flex;
+            background-color: transparent;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .prev:hover {
+            background-color: rgba(128, 128, 128, 0.1);
+            cursor: pointer;
+        }
+
+        .bi-chevron-right {
+            color: blue;
+        }
+
+        .bi-chevron-right:hover {
+            stroke: blue;
+            stroke-width: 0.5px;
+            cursor: pointer;
+        }
+
+        .bi-chevron-left {
+            color: blue;
+        }
+
+        .bi-chevron-left:hover {
+            stroke: blue;
+            stroke-width: 0.5px;
+            cursor: pointer;
+        }
+
+
+    </style>
+
+    <script>
+        let i = 0;
+        let sliderWidth = slider.clientWidth;
+        let width = container.clientWidth;
+        let element = document.getElementById("slider");
+        let count = element.childElementCount;
+
+        function goNext() {
+            if (i < count - 1) {
+                i++;
+                slider.style.transform = `translateX(-${width * i}px)`;
+                nextArrow.style.color = "blue";
+                prevArrow.style.color = "blue";
+            } else {
+                nextArrow.style.color = "grey";
+                nextArrow.style.stroke = "none";
+            }
+        }
+
+        next.addEventListener("click", goNext);
+
+        function goPrev() {
+            if (i > 0) {
+                i--;
+                slider.style.transform = `translateX(-${width * i}px)`;
+                prevArrow.style.color = "blue";
+                nextArrow.style.color = "blue";
+            } else {
+                prevArrow.style.color = "grey";
+                prevArrow.style.stroke = "none";
+            }
+        }
+
+        prev.addEventListener("click", goPrev);
+    </script>
+
+</body>
+
+</html>
