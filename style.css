@@ -1,0 +1,86 @@
+/*NB: Content width must = container width*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box {
+    width: 190px;
+    height: 220px;
+    background-color: blue;
+    margin: 1rem;
+}
+
+.mainContainer {
+    display: flex;
+    width: 100vw;
+    height: auto;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: auto;
+    background-image: url(https://source.unsplash.com/user/erondu/1600x900);
+    background-size: cover;
+}
+
+.container {
+    width: 100vw;
+    height: fit-content;
+    overflow: hidden;
+}
+
+.slider {
+    width: fit-content;
+    display: flex;
+    transition: ease 1s;
+}
+
+.next {
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+}
+
+.next:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+    cursor: pointer;
+}
+
+.prev {
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+}
+
+.prev:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+    cursor: pointer;
+}
+
+.bi-chevron-right {
+    color: blue;
+}
+
+.bi-chevron-right:hover {
+    stroke: blue;
+    stroke-width: 0.5px;
+    cursor: pointer;
+}
+
+.bi-chevron-left {
+    color: blue;
+}
+
+.bi-chevron-left:hover {
+    stroke: blue;
+    stroke-width: 0.5px;
+    cursor: pointer;
+}
